@@ -10,7 +10,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CorsConfig {
 	
-
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
@@ -20,7 +19,7 @@ public class CorsConfig {
                         .allowedOrigins(
                             "http://localhost:3000", 
                             "https://expense-tracker-frontend-2ode.onrender.com", 
-                            "https://expense-tracker-frontend-39eo.onrender.com"  
+                            "https://expense-tracker-frontend-39eo.onrender.com"  //urls
                         )
                         .allowedMethods("*")
                         .allowedHeaders("*")
