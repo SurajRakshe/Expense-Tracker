@@ -15,8 +15,12 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")  // Allow all routes
-                        .allowedOrigins("http://localhost:3000")
+                registry.addMapping("/**")
+                        .allowedOrigins(
+                            "http://localhost:3000", 
+                            "https://expense-tracker-frontend-2ode.onrender.com", 
+                            "https://expense-tracker-frontend-39eo.onrender.com"  //urls
+                        )
                         .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true);
@@ -24,4 +28,3 @@ public class CorsConfig {
         };
     }
 }
-
