@@ -12,7 +12,7 @@ export default function Dashboard() {
   const [transactions, setTransactions] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [budgetLimit] = useState(5000);
+  const [budgetLimit] = useState(100000);
 
   const { logout } = useAuth();
 
