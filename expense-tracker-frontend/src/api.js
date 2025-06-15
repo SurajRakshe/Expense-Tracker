@@ -3,7 +3,9 @@ import axios from 'axios';
 
 const API = axios.create({
   //baseURL: 'https://expense-tracker-backend-9klo.onrender.com/api/',
-  baseURL: 'https://expense-tracker-backend-9klo.onrender.com/api/',
+  //baseURL: 'https://expense-tracker-backend-9klo.onrender.com/api/', 
+  baseURL: 'https://expense-tracker-backend-6uel.onrender.com/api/',   //
+//
 
    // baseURL: 'http://localhost:8181/api/',
   headers: {
@@ -52,7 +54,7 @@ API.interceptors.response.use(
     }
 
     if (error.message === 'Network Error') {
-      alert('⚠️ Backend not reachable. Make sure Spring Boot is running at http://localhost:8080/api');
+      alert('⚠️ Backend not reachable. Make sure Spring Boot is running at http://localhost:8181/api');
     } else if (status === 404) {
       alert(`❌ API not found at ${config?.url}. Check your backend endpoint path.`);
     }
