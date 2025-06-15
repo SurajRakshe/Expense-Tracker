@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import API from '../api';
 import { toast } from 'react-toastify';
+import { useAuth } from '../context/AuthContext';
 
 const bgImages = ['/images/bg1.jpg', '/images/bg2.jpg', '/images/bg3.jpg'];
+
 export default function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [darkMode, setDarkMode] = useState(false);
   const [bgIndex, setBgIndex] = useState(0);
-  const navigate = useNavigate();
 
- // const bgImages = ['/images/bg1.jpg', '/images/bg2.jpg', '/images/bg3.jpg'];
+  const { login } = useAuth();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,9 +30,8 @@ export default function Login() {
     setError('');
     try {
       const res = await API.post('/auth/login', form);
-      localStorage.setItem('token', res.data.token);
+      login({ token: res.data.token }); // AuthContext handles navigation
       toast.success('Login successful!');
-      navigate('/dashboard');
     } catch (err) {
       const errorMsg = err.response?.data?.error || 'Login failed';
       setError(errorMsg);
