@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../.mvn"
+		},
+		{
+			"path": "../.settings"
+		},
+		{
+			"path": "../.vscode"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../src"
+		},
+		{
+			"path": "../target"
+		}
+	]
+}
